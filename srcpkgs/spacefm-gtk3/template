@@ -1,0 +1,23 @@
+# Template file for 'spacefm-gtk3'
+pkgname=spacefm-gtk3
+version=1.0.6
+revision=1
+build_style=gnu-configure
+conf_files="/etc/spacefm/spacefm.conf"
+hostmakedepends="pkg-config intltool"
+makedepends="gtk+3-devel startup-notification-devel eudev-libudev-devel ffmpegthumbnailer-devel"
+depends="hicolor-icon-theme desktop-file-utils"
+provides="spacefm-${version}_${revision}"
+replaces="spacefm>=0"
+short_desc="Multi-panel tabbed file manager"
+maintainer="Antonio Malcolm <antonio@antoniomalcolm.com>"
+license="GPL-3.0"
+homepage="http://ignorantguru.github.com/spacefm/"
+distfiles="https://github.com/IgnorantGuru/spacefm/archive/${version}.tar.gz"
+checksum=fedea9fcad776e0af4b8d90c5a1c86684a9c96ef1cdd4e959530ce93bdebe7c9
+create_wrksrc="yes"
+
+post_extract() {
+	mv ${wrksrc}/spacefm-${version}/* ${wrksrc}
+	rm -r ${wrksrc}/spacefm-${version}
+}
