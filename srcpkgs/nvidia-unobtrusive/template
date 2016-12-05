@@ -3,7 +3,7 @@
 _desc="NVIDIA drivers for linux, alternate install (side-by-side with xorg GL drivers)"
 
 pkgname=nvidia-unobtrusive
-version=367.57
+version=375.20
 revision=1
 maintainer="Antonio Malcolm <antonio@antoniomalcolm.com>"
 license="Proprietary NVIDIA license"
@@ -26,11 +26,11 @@ build_options_default="glvnd"
 if [ "$XBPS_TARGET_MACHINE" = "i686" ]; then
 	_pkg="NVIDIA-Linux-x86-${version}"
 	distfiles="http://us.download.nvidia.com/XFree86/Linux-x86/${version}/NVIDIA-Linux-x86-${version}.run"
-	checksum=43d4e926f71ac6c581018badf467458709822e97a7564ed9f1b521b7b63d88bb
+	checksum=cc79d3ac2b688009ed2e47a1cf27557aea5dd745b3b6e9b83945c359ddab4335
 else
 	_pkg="NVIDIA-Linux-x86_64-${version}-no-compat32"
 	distfiles="http://us.download.nvidia.com/XFree86/Linux-x86_64/${version}/NVIDIA-Linux-x86_64-${version}-no-compat32.run"
-	checksum=b94a8ab6a1da464b44ba9bbb25e1e220441ae8340221de3bd159df00445dd6e4
+	checksum=ef2e71b6eef6ce2ee2556c1449d129380f0312b5a6a51bd8483fd60f8df0b9bf
 fi
 
 subpackages="nvidia-unobtrusive-gtklibs nvidia-unobtrusive-dkms nvidia-unobtrusive-opencl nvidia-unobtrusive-libs"
