@@ -3,7 +3,7 @@
 _desc="NVIDIA drivers for linux, alternate install (side-by-side with xorg GL drivers)"
 
 pkgname=nvidia-unobtrusive
-version=390.59
+version=390.67
 revision=1
 maintainer="Antonio Malcolm <antonio@antoniomalcolm.com>"
 license="Proprietary NVIDIA license"
@@ -26,11 +26,11 @@ build_options_default="glvnd"
 if [ "$XBPS_TARGET_MACHINE" = "i686" ]; then
 	_pkg="NVIDIA-Linux-x86-${version}"
 	distfiles="http://us.download.nvidia.com/XFree86/Linux-x86/${version}/${_pkg}.run"
-	checksum=93e38818b8fc5d0fc34f05449c15808e774de389545475a9536ffb6555b3bb57
+	checksum=6f4af70ee3d03ed31c497a5d555164c56057b53ecedfc0d2c8de4b0b90728805
 else
 	_pkg="NVIDIA-Linux-x86_64-${version}-no-compat32"
 	distfiles="http://us.download.nvidia.com/XFree86/Linux-x86_64/${version}/${_pkg}.run"
-	checksum=397adf2f725f6d27aaf583431efe8d1182d926930e73f1bfd6f9e6fbc03c0484
+	checksum=4d9d4a636d568a93412cd9a2db08c594adef20861707dfdfbd6ae15db3292b26
 fi
 
 subpackages="nvidia-unobtrusive-gtklibs nvidia-unobtrusive-dkms nvidia-unobtrusive-opencl nvidia-unobtrusive-libs"
@@ -98,8 +98,8 @@ do_install() {
 	vinstall libGLdispatch.so.0 755 opt/lib/nvidia
 	
 	vinstall libGLESv1_CM.so.1.2.0 755 opt/lib/nvidia
-	ln -sf libGLESv1_CM.so.2.0.1 ${DESTDIR}/opt/lib/nvidia/libGLESv1_CM.so
-	ln -sf libGLESv1_CM.so.2.0.1 ${DESTDIR}/opt/lib/nvidia/libGLESv1_CM.so.1
+	ln -sf libGLESv1_CM.so.1.2.0 ${DESTDIR}/opt/lib/nvidia/libGLESv1_CM.so
+	ln -sf libGLESv1_CM.so.1.2.0 ${DESTDIR}/opt/lib/nvidia/libGLESv1_CM.so.1
 	
 	vinstall libGLESv2.so.2.1.0 755 opt/lib/nvidia
 	ln -sf libGLESv2.so.2.1.0 ${DESTDIR}/opt/lib/nvidia/libGLESv2.so
